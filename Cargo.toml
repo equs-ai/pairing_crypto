@@ -1,14 +1,16 @@
 [package]
-name = "pairing_crypto"
-version = "0.4.3"
-authors = ["Tobias Looker <tobias.looker@mattr.global>", "Gaurav Tiwari <gaurav.tiwari@mattr.global>", "Vasilis Kalos <vasilis.kalos@mattr.global>"]
+name = "equs-pairing-crypto"
+version = "0.1.0"
 description = "A library for some of the pairing cryptography schemes"
-repository = "https://github.com/mattrglobal/pairing_crypto"
+repository = "https://github.com/equs-ai/pairing_crypto"
 keywords = ["bbs-signatures", "cryptography"]
 categories = ["cryptography"]
 edition = "2021"
 license = "Apache-2.0"
 readme = "README.md"
+
+[lib]
+name = "pairing_crypto"
 
 [features]
 default = []
@@ -36,7 +38,7 @@ sha3 = "0.9"
 criterion = { version = "0.5.1", features = ["html_reports"] }
 hex = "0.4"
 rand_xorshift = "0.3"
-bbs-fixtures-generator = {version = "0.1.0", path = "tools/bbs-fixtures-generator"}
+bbs-fixtures-generator = { path = "tools/bbs-fixtures-generator" }
 serde_json = "1.0.82"
 log = "0.4"
 pretty_env_logger = "0.4"
