@@ -25,4 +25,4 @@ sha2 = { version = "0.9", default-features = false }
 sha3 = "0.9"
 hkdf = "0.11"
 digest = "0.9"
-blstrs = { git = "https://github.com/procivis/blstrs.git", rev = "a0cb960", version = "0.6.1" }
+blstrs = { package = "equs-blstrs", version = "0.1.0" }
