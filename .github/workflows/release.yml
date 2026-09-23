@@ -32,7 +32,8 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         run: |
           tag="${GITHUB_REF_NAME#v}"
-          manifest=$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[0].version')
+          manifest=$(cargo metadata --no-deps --format-version 1 \
+            | jq -r --arg m "$PWD/Cargo.toml" '.packages[] | select(.manifest_path == $m) | .version')
           echo "tag      $tag"
           echo "manifest $manifest"
           if [ "$tag" != "$manifest" ]; then
@@ -52,14 +53,13 @@ jobs:
 
       - name: Inspect the tarball
         run: |
-          crate=$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[0].name')
-          version=$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[0].version')
-          tarball="target/package/$crate-$version.crate"
+          tarball=$(ls target/package/*.crate)
+          dir=$(basename "$tarball" .crate)
           ls -l "$tarball"
           echo "sha256 $(sha256sum "$tarball" | cut -d' ' -f1)"
           echo "files  $(tar -tzf "$tarball" | wc -l)"
           echo "--- manifest as published ---"
-          tar -xzOf "$tarball" "$crate-$version/Cargo.toml"
+          tar -xzOf "$tarball" "$dir/Cargo.toml"
 
       - name: Upload the tarball
         uses: actions/upload-artifact@v4
