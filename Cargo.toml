@@ -3,6 +3,7 @@ name = "equs-pairing-crypto"
 version = "0.1.0"
 description = "A library for some of the pairing cryptography schemes"
 repository = "https://github.com/equs-ai/pairing_crypto"
+exclude = [".cargo/", ".gitattributes", ".github/", ".gitignore", "deny.toml", "docs/", "pairing-crypto.podspec", "rustfmt.toml", "tools/", "wrappers/"]
 keywords = ["bbs-signatures", "cryptography"]
 categories = ["cryptography"]
 edition = "2021"
