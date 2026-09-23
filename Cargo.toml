@@ -1,6 +1,6 @@
 [package]
 name = "equs-pairing-crypto"
-version = "0.1.0"
+version = "0.2.0"
 description = "A library for some of the pairing cryptography schemes"
 repository = "https://github.com/equs-ai/pairing_crypto"
 exclude = [".cargo/", ".gitattributes", ".github/", ".gitignore", "deny.toml", "docs/", "pairing-crypto.podspec", "rustfmt.toml", "tests/", "tools/", "wrappers/"]
@@ -36,7 +36,7 @@ sha2 = "0.9"
 sha3 = "0.9"
 
 [dev-dependencies]
-criterion = { version = "0.4.0", features = ["html_reports"] }
+criterion = { version = "0.5.1", features = ["html_reports"] }
 hex = "0.4"
 rand_xorshift = "0.3"
 bbs-fixtures-generator = { path = "tools/bbs-fixtures-generator" }

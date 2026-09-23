@@ -30,8 +30,7 @@
 
 #![cfg_attr(docsrs, feature(doc_cfg))]
 #![warn(missing_docs, rustdoc::missing_crate_level_docs, rust_2018_idioms)]
-// TODO(DEBT): Deny dead_code and unused variables
-#![deny(redundant_semicolons, unsafe_code, while_true)]
+#![deny(dead_code, redundant_semicolons, unused, unsafe_code, while_true)]
 
 #[cfg(feature = "alloc")]
 extern crate alloc;
@@ -39,8 +38,8 @@ extern crate alloc;
 /// Error types
 mod error;
 
-// Common types and utilities
-mod common;
+/// Common types and utilities
+pub mod common;
 
 // Supported Curves
 mod curves;
